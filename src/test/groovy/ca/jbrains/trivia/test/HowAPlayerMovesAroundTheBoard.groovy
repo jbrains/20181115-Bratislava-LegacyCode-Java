@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class HowAPlayerMovesAroundTheBoard extends Specification {
     def "the board is circular"() {
-        def game = new InspectableSinglePlayerGame(startingPlace)
+        def game = new SilentAndInspectableSinglePlayerGame(startingPlace)
 
         expect:
         game.roll(roll)

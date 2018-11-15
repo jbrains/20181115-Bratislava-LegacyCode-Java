@@ -2,8 +2,8 @@ package ca.jbrains.trivia.test;
 
 import com.adaptionsoft.games.uglytrivia.Game;
 
-public class InspectableSinglePlayerGame extends Game {
-    public InspectableSinglePlayerGame(int startingPlace) {
+public class SilentAndInspectableSinglePlayerGame extends Game {
+    public SilentAndInspectableSinglePlayerGame(int startingPlace) {
         add("::irrelevant player name::");
         putPlayerInPlace(indexOfTheOnlyPlayer(), startingPlace);
     }
@@ -24,5 +24,10 @@ public class InspectableSinglePlayerGame extends Game {
 
     private int indexOfTheOnlyPlayer() {
         return 0;
+    }
+
+    @Override
+    protected void reportMessage(String message) {
+        // Intentionally do nothing
     }
 }
