@@ -93,11 +93,11 @@ public class Game {
 
     private void askQuestion() {
         if (currentCategory() == "Pop")
-            System.out.println(popQuestions.removeFirst());
+            reportMessage((String) popQuestions.removeFirst());
         if (currentCategory() == "Science")
-            System.out.println(scienceQuestions.removeFirst());
+            reportMessage((String) scienceQuestions.removeFirst());
         if (currentCategory() == "Sports")
-            System.out.println(sportsQuestions.removeFirst());
+            reportMessage((String) sportsQuestions.removeFirst());
         if (currentCategory() == "Rock")
             reportMessage((String) rockQuestions.removeFirst());
     }
