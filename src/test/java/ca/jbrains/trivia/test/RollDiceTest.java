@@ -1,15 +1,24 @@
 package ca.jbrains.trivia.test;
 
 import com.adaptionsoft.games.uglytrivia.Game;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class RollDiceTest {
     @Test
     public void happyPath() throws Exception {
-        Game game = new Game() {
+        class InspectableGame extends Game {
+            public InspectableGame() {
+                add("::irrelevant player name::");
+            }
 
-        };
+            public int placeForPlayer(int playerIndex) {
+                return places[playerIndex];
+            }
+        }
 
+        InspectableGame game = new InspectableGame();
         game.roll(3);
+        Assert.assertEquals(3, game.placeForPlayer(0));
     }
 }
