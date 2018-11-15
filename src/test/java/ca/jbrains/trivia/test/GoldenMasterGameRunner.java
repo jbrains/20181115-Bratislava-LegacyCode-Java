@@ -10,6 +10,10 @@ public class GoldenMasterGameRunner {
     private static boolean notAWinner;
 
     public static void main(String[] args) {
+        new GoldenMasterGameRunner().runGame();
+    }
+
+    public void runGame() {
         Game aGame = new Game();
 
         aGame.add("Chet");
@@ -30,6 +34,5 @@ public class GoldenMasterGameRunner {
 
 
         } while (notAWinner);
-
     }
 }
