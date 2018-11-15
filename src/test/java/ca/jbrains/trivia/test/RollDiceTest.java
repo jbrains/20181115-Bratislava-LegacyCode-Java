@@ -10,12 +10,19 @@ public class RollDiceTest {
         class InspectableGame extends Game {
             public InspectableGame() {
                 add("::irrelevant player name::");
+                putPlayerInPlace(0, 0);
+            }
+
+            // REFACTOR Move to some kind of SetupGame module
+            public void putPlayerInPlace(int playerIndex, int place) {
+                places[playerIndex] = place;
             }
 
             public int placeForPlayer(int playerIndex) {
                 return places[playerIndex];
             }
 
+            // REFACTOR I wouldn't need this if I could inspect a Turn.
             private int indexOfLastPlayerWhoPlayed() {
                 return 0;
             }
