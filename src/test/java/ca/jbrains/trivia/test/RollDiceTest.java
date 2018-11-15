@@ -8,9 +8,9 @@ public class RollDiceTest {
     @Test
     public void happyPath() throws Exception {
         class InspectableGame extends Game {
-            public InspectableGame() {
+            public InspectableGame(int startingPlace) {
                 add("::irrelevant player name::");
-                putPlayerInPlace(0, 0);
+                putPlayerInPlace(indexOfTheOnlyPlayer(), startingPlace);
             }
 
             // REFACTOR Move to some kind of SetupGame module
@@ -24,11 +24,15 @@ public class RollDiceTest {
 
             // REFACTOR I wouldn't need this if I could inspect a Turn.
             private int indexOfLastPlayerWhoPlayed() {
+                return indexOfTheOnlyPlayer();
+            }
+
+            private int indexOfTheOnlyPlayer() {
                 return 0;
             }
         }
 
-        InspectableGame game = new InspectableGame();
+        InspectableGame game = new InspectableGame(0);
         game.roll(3);
         Assert.assertEquals(3, game.placeForPlayer(game.indexOfLastPlayerWhoPlayed()));
     }
