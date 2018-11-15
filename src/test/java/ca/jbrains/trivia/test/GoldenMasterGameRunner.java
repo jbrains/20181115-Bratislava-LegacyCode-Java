@@ -10,17 +10,17 @@ public class GoldenMasterGameRunner {
     private static boolean notAWinner;
 
     public static void main(String[] args) {
-        new GoldenMasterGameRunner().runGame();
+        new GoldenMasterGameRunner().runGame(1000);
     }
 
-    public void runGame() {
+    public void runGame(int seed) {
         Game aGame = new Game();
 
         aGame.add("Chet");
         aGame.add("Pat");
         aGame.add("Sue");
 
-        Random rand = new Random(1000);
+        Random rand = new Random(seed);
 
         do {
 
