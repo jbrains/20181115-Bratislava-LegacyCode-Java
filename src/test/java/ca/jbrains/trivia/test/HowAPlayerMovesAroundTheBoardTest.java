@@ -5,8 +5,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class HowAPlayerMovesAroundTheBoardTest {
-    public static class InspectableGame extends Game {
-        public InspectableGame(int startingPlace) {
+    public static class InspectableSinglePlayerGame extends Game {
+        public InspectableSinglePlayerGame(int startingPlace) {
             add("::irrelevant player name::");
             putPlayerInPlace(indexOfTheOnlyPlayer(), startingPlace);
         }
@@ -32,7 +32,7 @@ public class HowAPlayerMovesAroundTheBoardTest {
 
     @Test
     public void happyPath() throws Exception {
-        InspectableGame game = new InspectableGame(0);
+        InspectableSinglePlayerGame game = new InspectableSinglePlayerGame(0);
         game.roll(3);
         Assert.assertEquals(3, game.placeForPlayer(game.indexOfLastPlayerWhoPlayed()));
     }
