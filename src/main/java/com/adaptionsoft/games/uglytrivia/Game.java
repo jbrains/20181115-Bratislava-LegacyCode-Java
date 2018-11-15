@@ -86,8 +86,9 @@ public class Game {
     }
 
     private void moveCurrentPlayerBy(int roll) {
-        places[currentPlayer] = advancePlayerBy(places[currentPlayer], roll);
-        int newNewPlaceOfCurrentPlayer = adjustPlayerIfTheyMoveOffTheEdgeOfTheBoard(places[currentPlayer]);
+        int newNewPlaceOfCurrentPlayer =
+                adjustPlayerIfTheyMoveOffTheEdgeOfTheBoard(
+                        advancePlayerBy(places[currentPlayer], roll));
         this.places[currentPlayer] = newNewPlaceOfCurrentPlayer;
     }
 
