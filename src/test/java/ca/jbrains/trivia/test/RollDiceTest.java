@@ -15,10 +15,14 @@ public class RollDiceTest {
             public int placeForPlayer(int playerIndex) {
                 return places[playerIndex];
             }
+
+            private int indexOfLastPlayerWhoPlayed() {
+                return 0;
+            }
         }
 
         InspectableGame game = new InspectableGame();
         game.roll(3);
-        Assert.assertEquals(3, game.placeForPlayer(0));
+        Assert.assertEquals(3, game.placeForPlayer(game.indexOfLastPlayerWhoPlayed()));
     }
 }
