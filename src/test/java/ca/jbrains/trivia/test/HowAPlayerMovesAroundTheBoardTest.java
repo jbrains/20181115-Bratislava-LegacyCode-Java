@@ -4,7 +4,7 @@ import com.adaptionsoft.games.uglytrivia.Game;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class RollDiceTest {
+public class HowAPlayerMovesAroundTheBoardTest {
     public static class InspectableGame extends Game {
         public InspectableGame(int startingPlace) {
             add("::irrelevant player name::");
