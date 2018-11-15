@@ -1,0 +1,10 @@
+# Build targets
+target/
+
+# Generated files
+Metrics/
+
+# Eclipse
+.classpath
+.project
+
