@@ -86,9 +86,16 @@ public class Game {
     }
 
     private void moveCurrentPlayerBy(int roll) {
-        int placeOfCurrentPlayer = places[currentPlayer];
-        places[currentPlayer] = advancePlayerBy(placeOfCurrentPlayer, roll);
-        if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
+        places[currentPlayer] = advancePlayerBy(places[currentPlayer], roll);
+        int newNewPlaceOfCurrentPlayer = adjustPlayerIfTheyMoveOffTheEdgeOfTheBoard(places[currentPlayer]);
+        this.places[currentPlayer] = newNewPlaceOfCurrentPlayer;
+    }
+
+    public static int adjustPlayerIfTheyMoveOffTheEdgeOfTheBoard(int placeMaybeOffTheBoard) {
+        int placeDefinitelyOnTheBoard = placeMaybeOffTheBoard;
+        if (placeMaybeOffTheBoard > 11)
+            placeDefinitelyOnTheBoard = placeMaybeOffTheBoard - 12;
+        return placeDefinitelyOnTheBoard;
     }
 
     private static int advancePlayerBy(int placeOfCurrentPlayer, int roll) {
